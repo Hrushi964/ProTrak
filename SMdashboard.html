@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTrak - Site Manager Dashboard</title>
+    <link rel="stylesheet" href="SMstyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span>ProTrak</span>
+        </div>
+        <nav>
+            <ul class="nav-items">
+                <li><a href="SMdashboard.html">Dashboard</a></li>
+                <li><a href="Projectpage.html">Projects</a></li>
+                <li><a href="TaskPage.html">Tasks</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+        </nav>
+        <div class="user">
+            <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+            <div class="profile-menu" id="profileMenu">
+                <ul>
+                    <li><a href="#">User Details</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="task-overview">
+            <h2>Task Overview</h2>
+            <div class="overview-cards">
+                <div class="card total">Total Tasks: <span>0</span></div>
+                <div class="card in-progress">In Progress: <span>0</span></div>
+                <div class="card completed">Completed: <span>0</span></div>
+                <div class="card pending">Pending Submission: <span>0</span></div>
+            </div>
+        </section>
+
+        <section class="task-list">
+            <h2>Task List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="status-indicator red"></span> Foundation Concrete Pour</td>
+                        <td>15-01-2025</td>
+                        <td><span class="status-indicator yellow">In Progress</span></td>
+                        <td>
+                            <button class="upload">Upload</button>
+                            <button class="update">Update</button>
+                            <button class="view">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                    <<td><span class="status-indicator red"></span> Electrcity Installation</td>
+                    <td>30-12-2024</td>
+                    <td><span class="status-indicator yellow">Completed</span></td>
+                    <td>
+                        <button class="upload">Upload</button>
+                        <button class="update">Update</button>
+                        <button class="view">View</button>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="SMdashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTrak - Dashboard</title>
+    <link rel="stylesheet" href="PMstyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span>ProTrak</span>
+        </div>
+    
+        <nav>
+            <ul class="nav-items">
+                <li><a href="PMdashboard.html">Dashboard</a></li>
+                <li><a href="ProjectPage.html">Projects</a></li>
+                <li><a href="TasksPage.html">Tasks</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+        </nav>
+        <div class="user">
+            <div class="profile-icon" onclick="toggleProfileMenu()"></div>
+            <div class="profile-menu" id="profileMenu">
+                <ul>
+                    <li><a href="#">User Details</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-overview">
+            <h2>Project Overview</h2>
+            <div class="overview-cards">
+                <div class="card total">Total Projects: <span id="Total">0</span></div>
+                <div class="card completed">Completed: <span id="completed">0</span></div>
+            </div>
+            <div class="overview-cards">
+                <div class="card in-progress">In Progress: <span id="In-Progress">0</span></div>
+                <div class="card pending-approval">Pending Approval: <span id="Pending-Approval">0</span></div>
+            </div>
+        </section>
+
+        <section class="notifications">
+            <h2>Recent Notifications</h2>
+            <ul id="notificationList">
+                <li>John Martinez - Foundation Concrete Pour - 2 hours ago</li>
+                <li>Sarah Thompson - Steel Framing Installation - 4 hours ago</li>
+                <li>Mike Rodriguez - Electrcity Installation - 6 hours ago</li>
+            </ul>
+        </section>
+
+        <section class="team-overview">
+            <h2>Team Overview</h2>
+            <div class="team-member">
+                <div class="member-info">
+                    <span class="member-name">John Martinez</span>
+                    <span class="member-tasks">Tasks: 0/0</span>
+                    <span class="member-projects">Projects: 0/0</span>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-info">
+                    <span class="member-name">Sarah Thompson</span>
+                    <span class="member-tasks">Tasks: 0/0</span>
+                    <span class="member-projects">Projects: 0/0</span>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-info">
+                    <span class="member-name">Mike Rodriguez</span>
+                    <span class="member-tasks">Tasks: 0/0</span>
+                    <span class="member-projects">Projects: 0/0</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="PMdashboard.js"></script>
+</body>
+</html> 

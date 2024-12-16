@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Landscape Restoration Project Status</title>
+    <link rel="stylesheet" href="ProjectPage.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-text">ProTrak</span>
+        </div>
+    
+        <nav>
+            <ul class="nav-items">
+                <li><a href="PMdashboard.html">Dashboard</a></li>
+                <li><a href="ProjectPage.html">Projects</a></li>
+                <li><a href="TaskPage.html">Tasks</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+        </nav>
+        <div class="user">
+            <div class="profile-icon" onclick="toggleProfileMenu(event)"></div>
+            <div class="profile-menu" id="profileMenu">
+                <ul>
+                    <li><a href="#">User Details</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <!-- Project Status Section -->
+        <section class="project-status">
+            <h1>Urban Landscape Restoration Project</h1>
+            <span class="status">In Progress</span>
+            <div class="task-details">
+                <h2>Task Details</h2>
+                <p>Comprehensive urban green space development initiative focusing on sustainable landscape design and community integration.</p>
+                <p><strong>Emily Rodriguez</strong> - Lead Landscape Architect<br>emily@greencity.org</p>
+                <p><strong>Michael Chen</strong> - Environmental Specialist<br>michael@greencity.org</p>
+                <p><strong>Due:</strong> December 15, 2024</p>
+                <p><strong>Priority:</strong> High</p>
+            </div>
+            <div class="progress-tracking">
+                <h2>Progress Tracking</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 65%;"></div>
+                </div>
+                <p>Progress: 65%</p>
+            </div>
+        </section>
+
+        <!-- Project Images Section -->
+        <section class="project-images">
+            <h2>Project Images</h2>
+            <div class="image-grid">
+                <div class="image-placeholder">300 x 200</div>
+                <div class="image-placeholder">300 x 200</div>
+                <div class="image-placeholder">300 x 200</div>
+                <div class="image-placeholder">300 x 200</div>
+            </div>
+        </section>
+
+        <!-- Comments and Feedback Section -->
+        <section class="comments-feedback">
+            <h2>Comments and Feedback</h2>
+            <div class="comment">
+                <strong>Emily Rodriguez</strong> <span class="date">December 5, 2024</span>
+                <p>Initial site survey completed. Vegetation mapping in progress.</p>
+            </div>
+            <div class="comment">
+                <strong>Project Manager</strong> <span class="date">December 3, 2024</span>
+                <p>Reviewed initial proposals. Minor adjustments needed in community engagement strategy.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleProfileMenu(event) {
+            const menu = document.getElementById('profileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        }
+
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('profileMenu');
+            if (menu.style.display === 'block' && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
