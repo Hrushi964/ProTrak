@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.status {
+    background-color: #ffcc00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+.task-details, .project-images, .comments {
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    margin: 10px 0;
+}
+
+.progress {
+    background-color: #007bff;
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 20px; /* Center text vertically */
+    border-radius: 5px;
+}
+
+.image-container {
+    display: flex;
+    gap: 10px;
+}
+
+.image-placeholder {
+    width: 300px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.date {
+    font-size: 0.9em;
+    color: #888;
+}

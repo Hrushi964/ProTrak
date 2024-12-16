@@ -45,3 +45,16 @@ function updateTaskTable() {
         row.insertCell(3).innerText = task.siteManager; // Display site manager
     });
 }
+
+function toggleProfileMenu(event) {
+            var menu = document.getElementById('profileMenu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+            event.stopPropagation();
+        }
+
+document.addEventListener('click', function(event) {
+            var menu = document.getElementById('profileMenu');
+            if (menu.style.display === 'block' && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });

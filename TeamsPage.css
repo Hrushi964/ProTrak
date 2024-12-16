@@ -1,0 +1,115 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 24px;
+}
+
+nav {
+    margin-left: auto;
+}
+
+.nav-items {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-items li {
+    list-style: none;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: #fff; /* Change to your desired color */
+    border: 2px solid white; /* Adjust border as needed */
+    margin-right: 10px;
+}
+
+.profile-icon {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: #fff; /* Change to your desired color */
+    border: 2px solid white; /* Adjust border as needed */
+    position: relative;
+}
+
+.profile-menu {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it absolutely */
+    right: 10px; /* Adjust this value to move it left */
+    background-color: white; /* Background color for visibility */
+    min-width: 160px; /* Minimum width for the dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow for depth */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+.profile-menu.show {
+    display: block; /* Show when the class is added */
+}
+
+.profile-menu ul {
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.profile-menu li {
+    text-align: left; /* Align text to the left */
+}
+
+.profile-menu li a {
+    color: black; /* Text color */
+    padding: 12px 16px; /* Padding for clickable area */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the entire area clickable */
+}
+
+.profile-menu li a:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
+
+#team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.member {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+}
+
+.member img {
+    width: 100%;
+    border-radius: 50%;
+}

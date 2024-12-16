@@ -17,8 +17,8 @@
             <ul class="nav-items">
                 <li><a href="PMdashboard.html">Dashboard</a></li>
                 <li><a href="ProjectPage.html">Projects</a></li>
-                <li><a href="TaskPage.html">Tasks</a></li>
-                <li><a href="#">Teams</a></li>
+                <li><a href="TasksPage.html">Tasks</a></li>
+                <li><a href="TeamsPage.html">Teams</a></li>
                 <li><a href="#">Notifications</a></li>
             </ul>
         </nav>
@@ -34,63 +34,79 @@
         </div>
     </header>
 
-
     <div class="container">
-        <!-- Project Status Section -->
-        <section class="project-status">
-            <h1>Urban Landscape Restoration Project</h1>
-            <span class="status">In Progress</span>
-            <div class="task-details">
-                <h2>Task Details</h2>
-                <p>Comprehensive urban green space development initiative focusing on sustainable landscape design and community integration.</p>
-                <p><strong>Emily Rodriguez</strong> - Lead Landscape Architect<br>emily@greencity.org</p>
-                <p><strong>Michael Chen</strong> - Environmental Specialist<br>michael@greencity.org</p>
-                <p><strong>Due:</strong> December 15, 2024</p>
-                <p><strong>Priority:</strong> High</p>
+        <div class="split-container">
+            <!-- Left Side: Current and Completed Projects -->
+            <div class="project-list">
+                <h2>Current and Completed Projects</h2>
+                <table id="projectTable">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Project entries will be added here -->
+                    </tbody>
+                </table>
             </div>
-            <div class="progress-tracking">
-                <h2>Progress Tracking</h2>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 65%;"></div>
-                </div>
-                <p>Progress: 65%</p>
-            </div>
-        </section>
 
-        <!-- Project Images Section -->
-        <section class="project-images">
-            <h2>Project Images</h2>
-            <div class="image-grid">
-                <div class="image-placeholder">300 x 200</div>
-                <div class="image-placeholder">300 x 200</div>
-                <div class="image-placeholder">300 x 200</div>
-                <div class="image-placeholder">300 x 200</div>
+            <!-- Right Side: Create New Project -->
+            <div class="create-project">
+                <h2>Create New Project</h2>
+                <form id="projectForm">
+                    <div class="form-group">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" id="projectName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Project Description</label>
+                        <textarea id="projectDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" required>
+                            <option value="">Select Priority Level</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="siteManagers">Assign to Site Manager</label>
+                        <select id="siteManagers" multiple required>
+                            <option value="manager1">Manager 1</option>
+                            <option value="manager2">Manager 2</option>
+                            <option value="manager3">Manager 3</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Create Project</button>
+                </form>
             </div>
-        </section>
-
-        <!-- Comments and Feedback Section -->
-        <section class="comments-feedback">
-            <h2>Comments and Feedback</h2>
-            <div class="comment">
-                <strong>Emily Rodriguez</strong> <span class="date">December 5, 2024</span>
-                <p>Initial site survey completed. Vegetation mapping in progress.</p>
-            </div>
-            <div class="comment">
-                <strong>Project Manager</strong> <span class="date">December 3, 2024</span>
-                <p>Reviewed initial proposals. Minor adjustments needed in community engagement strategy.</p>
-            </div>
-        </section>
+        </div>
     </div>
 
+    <script src="ProjectPage.js"></script>
     <script>
         function toggleProfileMenu(event) {
-            const menu = document.getElementById('profileMenu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            var menu = document.getElementById('profileMenu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
             event.stopPropagation();
         }
 
         document.addEventListener('click', function(event) {
-            const menu = document.getElementById('profileMenu');
+            var menu = document.getElementById('profileMenu');
             if (menu.style.display === 'block' && !menu.contains(event.target)) {
                 menu.style.display = 'none';
             }

@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background-color: #f4f4f4;
 }
 header {
@@ -61,10 +61,11 @@ nav {
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
-    background: white;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
+    background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -73,86 +74,61 @@ h1, h2 {
     color: #333;
 }
 
-.status {
-    background-color: #ffcc00;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Individual section styles */
-.task-details {
-    background-color: #e7f3fe; /* Light blue */
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.progress-tracking {
-    background-color: #d4edda; /* Light green */
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.project-images {
-    background-color: #fff3cd; /* Light yellow */
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.comments-feedback {
-    background-color: #f8d7da; /* Light red */
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.progress-bar {
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress {
-    background-color: #76c7c0;
-    height: 20px;
-}
-
-.image-grid {
+.split-container {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.image-placeholder {
-    width: 300px;
-    height: 200px;
-    background-color: #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.project-list, .create-project {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
 }
 
-.comment {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.project-list table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.date {
-    font-size: 0.9em;
-    color: #777;
+.project-list th, .project-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
-.logo-icon {
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
-    border-radius: 50%;
-    background-color: #fff; /* Change to your desired color */
-    border: 2px solid white; /* Adjust border as needed */
-    margin-right: 10px;
+
+.create-project .form-group {
+    margin-bottom: 15px;
 }
+
+.create-project label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.create-project input, .create-project select, .create-project textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-project button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.create-project button:hover {
+    background-color: #0056b3;
+}
+
 .profile-menu {
     display: none;
     position: absolute;
