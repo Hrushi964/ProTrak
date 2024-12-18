@@ -1,0 +1,128 @@
+<!-- teams.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="TeamsPage.css">
+    <title>Our Team</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span>ProTrak</span>
+        </div>
+    
+        <nav>
+            <ul class="nav-items">
+                <li><a href="PMdashboard.html">Dashboard</a></li>
+                <li><a href="ProjectPage.html">Projects</a></li>
+                <li><a href="TasksPage.html">Tasks</a></li>
+                <li><a href="TeamsPage.html">Teams</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+        </nav>
+        <div class="user">
+            <div class="profile-icon" onclick="toggleProfileMenu()">
+                <div class="profile-menu" id="profileMenu">
+                    <ul>
+                        <li><a href="#">User Details</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section id="left-side">
+                <h2>Employee Overview</h2>
+                <table id="employee-overview">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Total Employees</th>
+                            <th>Currently Working</th>
+                            <th>Free</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Role A</td>
+                            <td><span id="total-role-a">10</span></td>
+                            <td><span id="currently-working-role-a">8</span></td>
+                            <td><span id="free-role-a">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>Role B</td>
+                            <td><span id="total-role-b">20</span></td>
+                            <td><span id="currently-working-role-b">15</span></td>
+                            <td><span id="free-role-b">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>Role C</td>
+                            <td><span id="total-role-c">5</span></td>
+                            <td><span id="currently-working-role-c">3</span></td>
+                            <td><span id="free-role-c">2</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Recent Notifications</h3>
+                <ul id="notifications">
+                    <li>John Doe sent a message regarding project updates.</li>
+                    <li>Jane Smith has completed her tasks for the week.</li>
+                </ul>
+            </section>
+
+            <section id="right-side">
+                <input type="text" id="search-bar" placeholder="Search for members...">
+                <div id="team-members">
+                    <div class="member-card">
+                        <div class="profile-picture">
+                            <img src="member1.jpg" alt="John Doe">
+                        </div>
+                        <h2>John Doe</h2>
+                        <p>Role: Project Manager</p>
+                        <p>John has over 10 years of experience in project management.</p>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Phone: 123-456-7890</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="profile-picture">
+                            <img src="member2.jpg" alt="Jane Smith">
+                        </div>
+                        <h2>Jane Smith</h2>
+                        <p>Role: Lead Developer</p>
+                        <p>Jane specializes in front-end development and UX design.</p>
+                        <p>Email: janesmith@example.com</p>
+                        <p>Phone: 234-567-8901</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="profile-picture">
+                            <img src="member3.jpg" alt="Mike Johnson">
+                        </div>
+                        <h2>Mike Johnson</h2>
+                        <p>Role: Site Manager</p>
+                        <p>Mike has extensive experience in site management and operations.</p>
+                        <p>Email: mikejohnson@example.com</p>
+                        <p>Phone: 345-678-9012</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="profile-picture">
+                            <img src="member4.jpg" alt="Emily Davis">
+                        </div>
+                        <h2>Emily Davis</h2>
+                        <p>Role: UX Designer</p>
+                        <p>Emily focuses on creating user-friendly designs and experiences.</p>
+                        <p>Email: emilydavis@example.com</p>
+                        <p>Phone: 456-789-0123</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="TeamsPage.js"></script>
+</body>
+</html>

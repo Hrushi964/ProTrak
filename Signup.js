@@ -24,12 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
             fullName: fullName,
             role: role,
             email: email,
-            password: password,
-            phone: phone
+            password: password
         };
 
-        // Store user data
-        storeUserData(userData);
+        // Send user data to the server
+        fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(function(response) {
+            if (response.ok) {
+                alert('Registration Successful! Please Sign In.');
+                window.location.href = 'signin.html';
+            } else {
+                return response.text().then(function(text) { throw new Error(text); });
+            }
+        })
+        .catch(function(error) {
+            alert(error.message);
+        });
     });
 });
 

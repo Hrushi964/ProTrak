@@ -93,23 +93,80 @@ nav {
     background-color: #f1f1f1; /* Highlight on hover */
 }
 
-#team-members {
+.container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding: 20px;
 }
 
-.member {
+#left-side {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+#right-side {
+    flex: 2;
+    padding: 20px;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.member-card {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 10px;
     padding: 15px;
     text-align: center;
-    width: 200px;
+    width: calc(25% - 20px); /* Four cards in a row */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.member img {
+.profile-picture {
+    width: 80px; /* Adjust size for profile picture */
+    height: 80px; /* Adjust size for profile picture */
+    border-radius: 50%; /* Circle shape */
+    overflow: hidden; /* Ensure the image fits */
+    margin: 0 auto 10px; /* Center the picture */
+}
+
+.profile-picture img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#notifications {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notifications li {
+    margin: 5px 0;
+}
+
+#employee-overview {
     width: 100%;
-    border-radius: 50%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#employee-overview th, #employee-overview td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#employee-overview th {
+    background-color: #f2f2f2;
 }

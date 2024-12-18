@@ -12,28 +12,40 @@ function handleSignIn(event) {
     var role = document.querySelector('.role-select').value;
 
     // Validate credentials
-    validateCredentials(email, password, role)
-        .then(function(isValid) {
-            if (isValid) {
-                // Redirect based on role
-                switch(role) {
-                    case 'project manager':
-                        window.location.href = 'PMdashboard.html';
-                        break;
-                    case 'site manager':
-                        window.location.href = 'SMdashboard.html';
-                        break;
-                    default:
-                        alert('Invalid role selected');
-                }
-            } else {
-                alert('Incorrect email, password, or role');
-            }
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            role: role
         })
-        .catch(function(error) {
-            console.error('Validation error:', error);
-            alert('An error occurred during sign-in');
-        });
+    })
+    .then(function(response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Incorrect email, password, or role');
+        }
+    })
+    .then(function(user) {
+        // Redirect based on role
+        switch(user.role) {
+            case 'project manager':
+                window.location.href = 'PMdashboard.html';
+                break;
+            case 'site manager':
+                window.location.href = 'SMdashboard.html';
+                break;
+            default:
+                alert('Invalid role selected');
+        }
+    })
+    .catch(function(error) {
+        alert(error.message);
+    });
 }
 
 // validation.js
