@@ -1,4 +1,9 @@
 // signInPage.js
+document.addEventListener('DOMContentLoaded', function() {
+    const signinForm = document.querySelector('form');
+    signinForm.addEventListener('submit', handleSignIn);
+});
+
 function handleSignUpClick() {
     window.location.href = 'signup.html'; // Redirect to sign-up page
 }
@@ -7,32 +12,22 @@ function handleSignIn(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get input values
-    var email = document.querySelector('input[type="email"]').value;
-    var password = document.querySelector('input[type="password"]').value;
-    var role = document.querySelector('.role-select').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+    const role = document.querySelector('.role-select').value;
 
     // Validate credentials
-    fetch('/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
+    const isValid = validateCredentials(email, password, role);
+    
+    if (isValid) {
+        // Store current user info in session
+        sessionStorage.setItem('currentUser', JSON.stringify({
             email: email,
-            password: password,
             role: role
-        })
-    })
-    .then(function(response) {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Incorrect email, password, or role');
-        }
-    })
-    .then(function(user) {
+        }));
+
         // Redirect based on role
-        switch(user.role) {
+        switch(role.toLowerCase()) {
             case 'project manager':
                 window.location.href = 'PMdashboard.html';
                 break;
@@ -42,10 +37,33 @@ function handleSignIn(event) {
             default:
                 alert('Invalid role selected');
         }
-    })
-    .catch(function(error) {
-        alert(error.message);
-    });
+    } else {
+        alert('Invalid email, password, or role. Please try again.');
+    }
+}
+
+function validateCredentials(email, password, role) {
+    // Get users from localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // Find user with matching email
+    const user = users.find(u => u.email === email);
+    
+    if (!user) {
+        return false; // User not found
+    }
+    
+    // Validate password and role
+    return user.password === password && user.role.toLowerCase() === role.toLowerCase();
+}
+
+function togglePasswordVisibility(inputId) {
+    const passwordInput = document.getElementById(inputId);
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
 }
 
 // validation.js
@@ -113,32 +131,3 @@ function validateForm(formType) {
         });
     }
 }
-
-function validateCredentials(email, password, role) {
-    return new Promise(function(resolve, reject) {
-        // Retrieve users from local storage
-        var users = JSON.parse(localStorage.getItem('users')) || [];
-        
-        // Find user with matching credentials and role
-        var user = users.find(function(user) {
-            return user.email === email && 
-                   user.password === password && 
-                   user.role === role;
-        });
-
-        // Resolve with true if user found, false otherwise
-        resolve(!!user);
-    });
-}
-
-function togglePasswordVisibility(inputId) {
-    var passwordInput = document.getElementById(inputId);
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text"; // Show password
-    } else {
-        passwordInput.type = "password"; // Hide password
-    }
-}
-
-// Add event listener to form submission
-document.querySelector('.form-group').addEventListener('submit', handleSignIn);

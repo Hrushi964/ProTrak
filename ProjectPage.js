@@ -12,13 +12,13 @@ function updateProjectTable() {
     var tableBody = document.querySelector('#projectTable tbody');
     tableBody.innerHTML = ''; // Clear existing rows
 
-    projects.forEach(function(project, index) {
+    projects.forEach(function(project) {
         var row = document.createElement('tr');
         row.innerHTML = 
-            '<td>' + (index + 1) + '</td>' +
-            '<td>' + project.name + '</td>' +
+            '<td><a href="ProjectDetails.html">' + project.name + '</a></td>' +
             '<td>' + project.startDate + '</td>' +
-            '<td>' + project.endDate + '</td>';
+            '<td>' + project.endDate + '</td>' +
+            '<td>' + project.status + '</td>';
         tableBody.appendChild(row);
     });
 }
@@ -29,13 +29,11 @@ document.getElementById('projectForm').addEventListener('submit', function(event
 
     var newProject = {
         name: document.getElementById('projectName').value,
-        description: document.getElementById('projectDescription').value,
+        description: document.getElementById('projectOverview').value,
         startDate: document.getElementById('startDate').value,
-        endDate: document.getElementById('endDate').value,
+        endDate: document.getElementById('dueDate').value,
         priority: document.getElementById('priority').value,
-        siteManagers: Array.from(document.getElementById('siteManagers').selectedOptions).map(function(option) {
-            return option.value;
-        })
+        status: 'In Progress' // Set the initial status
     };
 
     addProject(newProject); // Add the new project
@@ -55,4 +53,29 @@ document.addEventListener('click', function(event) {
     if (menu.style.display === 'block' && !menu.contains(event.target)) {
         menu.style.display = 'none';
     }
+});
+
+function filterManagers() {
+    var input = document.getElementById('managerSearch');
+    var filter = input.value.toLowerCase();
+    var dropdown = document.getElementById('managerDropdown');
+    var divs = dropdown.getElementsByTagName('div');
+
+    for (var i = 0; i < divs.length; i++) {
+        var label = divs[i].getElementsByTagName('label')[0];
+        if (label) {
+            var txtValue = label.textContent || label.innerText;
+            divs[i].style.display = txtValue.toLowerCase().includes(filter) ? '' : 'none';
+        }
+    }
+}
+
+document.getElementById('memberSearch').addEventListener('focus', function() {
+    document.getElementById('memberDropdown').style.display = 'block'; // Show dropdown on focus
+});
+
+document.getElementById('memberSearch').addEventListener('blur', function() {
+    setTimeout(function() {
+        document.getElementById('memberDropdown').style.display = 'none'; // Hide dropdown after a short delay
+    }, 100);
 });

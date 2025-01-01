@@ -47,14 +47,29 @@ function updateTaskTable() {
 }
 
 function toggleProfileMenu(event) {
-            var menu = document.getElementById('profileMenu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-            event.stopPropagation();
-        }
+    var menu = document.getElementById('profileMenu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    event.stopPropagation();
+}
 
 document.addEventListener('click', function(event) {
-            var menu = document.getElementById('profileMenu');
-            if (menu.style.display === 'block' && !menu.contains(event.target)) {
-                menu.style.display = 'none';
-            }
-        });
+    var menu = document.getElementById('profileMenu');
+    if (menu.style.display === 'block' && !menu.contains(event.target)) {
+        menu.style.display = 'none';
+    }
+});
+
+function filterManagers() {
+    var input = document.getElementById('managerSearch');
+    var filter = input.value.toLowerCase();
+    var dropdown = document.getElementById('managerDropdown');
+    var divs = dropdown.getElementsByTagName('div');
+    
+    for (var i = 0; i < divs.length; i++) {
+        var label = divs[i].getElementsByTagName('label')[0];
+        if (label) {
+            var txtValue = label.textContent || label.innerText;
+            divs[i].style.display = txtValue.toLowerCase().includes(filter) ? '' : 'none';
+        }
+    }
+}

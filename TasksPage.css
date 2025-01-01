@@ -6,6 +6,7 @@ body, html {
 .container {
     display: flex; /* Use flexbox for layout */
     height: calc(100% - 80px); /* Adjust height to account for header */
+    margin-top: 10px; /* Space between the navbar and the sections */
 }
 
 header {
@@ -87,7 +88,12 @@ textarea {
 }
 
 textarea {
-    resize: vertical;
+    width: 100%; /* Full width */
+    height: 100px; /* Increase height for a larger text area */
+    padding: 10px; /* Maintain padding for better usability */
+    border: 1px solid #ddd; /* Keep border styling */
+    border-radius: 5px; /* Maintain rounded corners */
+    resize: vertical; /* Allow vertical resizing */
 }
 
 .upload-area {
@@ -125,64 +131,199 @@ textarea {
 }
 
 .profile-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it absolutely */
+    top: 60px; /* Adjust based on your header height */
+    right: 0; /* Align to the right */
+    background-color: white; /* Background color */
+    border: 1px solid #ddd; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 .profile-menu ul {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
+    list-style: none; /* Remove default list styling */
+    padding: 10px; /* Padding for the menu */
+    margin: 0; /* Remove default margin */
 }
 
 .profile-menu li {
-    padding: 5px 10px;
+    padding: 5px 10px; /* Padding for each menu item */
 }
 
 .profile-menu li:hover {
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Highlight on hover */
 }
 
 .split-container {
-    display: flex;
-    width: 100%; /* Full width */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between sections */
+    margin-top: 20px; /* Space above the sections */
+    gap: 20px; /* Space between the two sections */
+    width: 100%; /* Ensure it takes full width */
 }
 
-.task-list {
-    flex: 1; /* Take up half of the container */
-    margin-right: 20px; /* Space between the two sections */
-    background-color: #f9f9f9; /* Light background for contrast */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.task-list{
+    background-color: #ffffff; /* White background for the section */
+    padding: 20px; /* Padding for inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1; /* Allow this section to grow equally */
+    min-width: 300px; /* Set a minimum width */
 }
 
+/* Adjust the assign task section */
 .assign-task {
-    flex: 1; /* Take up half of the container */
-    background-color: #ffffff; /* White background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background for the section */
+    padding: 20px; /* Padding for inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1; /* Allow this section to grow equally */
+    min-width: 300px; /* Set a minimum width */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse borders */
 }
 
 th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    padding: 10px; /* Padding for cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Bottom border for separation */
 }
 
 th {
-    background-color: #007bff;
-    color: white;
+    background-color: transparent; /* Change to transparent */
+    color: #333; /* Set text color */
 }
+
+/* Style for date input fields */
+.assign-task input[type="date"] {
+    width: 150px; /* Adjust width to reduce size */
+    padding: 8px; /* Maintain padding for better usability */
+    border: 1px solid #ccc; /* Keep border styling */
+    border-radius: 4px; /* Maintain rounded corners */
+}
+
+/* Style for priority dropdown */
+.assign-task select {
+    width: auto; /* Adjust width to fit text */
+    min-width: 150px; /* Minimum width */
+    padding: 8px; /* Maintain padding for better usability */
+    border: 1px solid #ccc; /* Keep border styling */
+    border-radius: 4px; /* Maintain rounded corners */
+}
+
+/* Style for manager search input */
+#managerSearch {
+    width: 100%; /* Full width */
+    padding: 8px; /* Maintain padding */
+    border: 1px solid #ccc; /* Keep border styling */
+    border-radius: 4px; /* Maintain rounded corners */
+}
+
+/* Style for dropdown content */
+.dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 1;
+    max-height: 200px; /* Limit height */
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Show dropdown when input is focused */
+#managerSearch:focus + .dropdown-content {
+    display: block;
+}
+
+/* Style for date input fields to be side by side */
+.date-group {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-start; /* Align items to the start */
+    margin-bottom: 15px; /* Space below the date fields */
+}
+
+.date-group label {
+    margin-right: 10px; /* Change this value to adjust space between label and input */
+    align-self: center; /* Center the label vertically */
+}
+
+/* Adjust the margin for the Start Date input */
+.date-group input[type="date"]:first-of-type {
+    margin-right: 1cm; /* Set this to 1cm for the gap after Start Date */
+}
+
+/* Adjust the margin for the Due Date label */
+.date-group label:nth-of-type(2) {
+    margin-left: 3cm; /* Set this to 2-3cm for the gap before Due Date */
+}
+
+/* Adjust the margin for the Due Date input */
+.date-group input[type="date"]:last-of-type {
+    margin-left: 0.2cm; /* Set this to 1cm for the gap after Due Date */
+}
+
+.date-group input[type="date"] {
+    width: 120px; /* Adjust width to reduce size */
+    padding: 4px; /* Further reduce padding for a tighter fit */
+    border: 1px solid #ccc; /* Keep border styling */
+    border-radius: 4px; /* Maintain rounded corners */
+}
+
+/* Style for manager checkboxes */
+.dropdown-content div {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 2px; /* Decrease space between checkbox items */
+    padding: 5px; /* Optional: Add some padding for better usability */
+}
+
+.dropdown-content input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+/* Adjust the split container to reduce space on the right */
+.split-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between sections */
+    margin-top: 40px; /* Space above the sections */
+    gap: 20px; /* Reduce gap between the two sections */
+}
+
+/* Add padding to the task list and assign task sections */
+.task-list {
+    background-color: #ffffff; /* White background for the section */
+    padding: 20px; /* Padding for inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1; /* Allow this section to grow */
+    min-width: 300px; /* Set a minimum width */
+    max-width: 50%; /* Set max width to 50% of the container */
+}
+
+.logo {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.logo-icon {
+    width: 40px; /* Set width for the logo icon */
+    height: 40px; /* Set height for the logo icon */
+    border-radius: 50%; /* Optional: make it circular */
+    background-color: #fff; /* Placeholder background color */
+    margin-right: 10px; /* Space between logo and text */
+    /* You can add an image as a background */
+    background-image: url('path/to/your/logo.png'); /* Replace with your logo path */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+}
+
+.logo-text {
+    font-size: 24px; /* Adjust font size as needed */
+    color: white; /* Text color */
+}
+

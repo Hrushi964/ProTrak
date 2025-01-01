@@ -11,11 +11,24 @@ document.addEventListener('DOMContentLoaded', function() {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var phone = document.getElementById('phone').value;
-        var otp = document.getElementById('otp').value;
 
         // Basic validation
-        if (!fullName || !role || !email || !password || !phone || !otp) {
+        if (!fullName || !role || !email || !password || !phone) {
             alert('Please fill in all fields');
+            return;
+        }
+
+        // Email validation
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+
+        // Password validation (min 8 chars, 1 uppercase, 1 lowercase, 1 number)
+        var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (!passwordRegex.test(password)) {
+            alert('Password must contain at least 8 characters, including uppercase, lowercase, and numbers');
             return;
         }
 
@@ -24,28 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
             fullName: fullName,
             role: role,
             email: email,
-            password: password
+            password: password,
+            phone: phone
         };
 
-        // Send user data to the server
-        fetch('/api/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        })
-        .then(function(response) {
-            if (response.ok) {
-                alert('Registration Successful! Please Sign In.');
-                window.location.href = 'signin.html';
-            } else {
-                return response.text().then(function(text) { throw new Error(text); });
-            }
-        })
-        .catch(function(error) {
-            alert(error.message);
-        });
+        // Store user data
+        storeUserData(userData);
     });
 });
 
@@ -57,6 +54,7 @@ function storeUserData(data) {
     var existingUser = users.find(function(user) {
         return user.email === data.email;
     });
+    
     if (existingUser) {
         alert('User with this email already exists!');
         return;

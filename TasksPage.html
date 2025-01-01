@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assign New Task</title>
+    <title>ProTrak - Tasks</title>
+    <link rel="stylesheet" href="shared-nav.css">
     <link rel="stylesheet" href="TasksPage.css">
 </head>
 <body>
@@ -28,7 +29,7 @@
                 <ul>
                     <li><a href="#">User Details</a></li>
                     <li><a href="#">Change Password</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +45,7 @@
                             <th>Task Name</th>
                             <th>Start Date</th>
                             <th>Due Date</th>
-                            <th>Site Manager</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,17 +59,15 @@
                 <form id="taskForm">
                     <div class="form-group">
                         <label for="taskTitle">Task Title</label>
-                        <input type="text" id="taskTitle" required>
+                        <input type="text" id="taskTitle" placeholder="Enter Task Title" required>
                     </div>
                     <div class="form-group">
                         <label for="taskDescription">Task Description</label>
-                        <textarea id="taskDescription" required></textarea>
+                        <textarea id="taskDescription" placeholder="Enter Task Description" required></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group date-group">
                         <label for="startDate">Start Date</label>
                         <input type="date" id="startDate" required>
-                    </div>
-                    <div class="form-group">
                         <label for="dueDate">Due Date</label>
                         <input type="date" id="dueDate" required>
                     </div>
@@ -82,13 +81,30 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="siteManager">Site Manager</label>
-                        <select id="siteManager" required>
-                            <option value="">Select Site Manager</option>
-                            <option value="manager1">Manager 1</option>
-                            <option value="manager2">Manager 2</option>
-                            <option value="manager3">Manager 3</option>
-                        </select>
+                        <label>Assign to Site Manager</label>
+                        <input type="text" id="managerSearch" placeholder="Search for a manager..." onkeyup="filterManagers()">
+                        <div class="dropdown-content" id="managerDropdown">
+                            <div>
+                                <input type="checkbox" id="manager1" name="siteManagers" value="Manager 1">
+                                <label for="manager1">Manager 1 (Lead)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="manager2" name="siteManagers" value="Manager 2">
+                                <label for="manager2">Manager 2 (Assistant)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="manager3" name="siteManagers" value="Manager 3">
+                                <label for="manager3">Manager 3 (Supervisor)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="manager4" name="siteManagers" value="Manager 4">
+                                <label for="manager4">Manager 4 (Coordinator)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="manager5" name="siteManagers" value="Manager 5">
+                                <label for="manager5">Manager 5 (Intern)</label>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn">Assign Task</button>
                 </form>
@@ -96,7 +112,7 @@
         </div>
     </div>
 
+    <script src="nav-highlight.js"></script>
     <script src="TasksPage.js"></script>
-    
 </body>
-</html> 
+</html>

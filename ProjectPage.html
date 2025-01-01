@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Landscape Restoration Project Status</title>
+    <title>ProTrak - Projects</title>
+    <link rel="stylesheet" href="shared-nav.css">
     <link rel="stylesheet" href="ProjectPage.css">
 </head>
 <body>
@@ -28,7 +29,7 @@
                 <ul>
                     <li><a href="#">User Details</a></li>
                     <li><a href="#">Change Password</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -42,14 +43,20 @@
                 <table id="projectTable">
                     <thead>
                         <tr>
-                            <th>S.No</th>
                             <th>Project Name</th>
                             <th>Start Date</th>
                             <th>End Date</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Project entries will be added here -->
+                        <tr>
+                            <td><a href="ProjectDetails.html">Urban Land Restoration Project</a></td>
+                            <td>2023-01-15</td>
+                            <td>2023-12-31</td>
+                            <td>In Progress</td>
+                        </tr>
+                        <!-- Additional project entries can be added here -->
                     </tbody>
                 </table>
             </div>
@@ -60,19 +67,17 @@
                 <form id="projectForm">
                     <div class="form-group">
                         <label for="projectName">Project Name</label>
-                        <input type="text" id="projectName" required>
+                        <input type="text" id="projectName" placeholder="Enter project name" required>
                     </div>
                     <div class="form-group">
-                        <label for="projectDescription">Project Description</label>
-                        <textarea id="projectDescription" required></textarea>
+                        <label for="projectOverview">Project Overview</label>
+                        <textarea id="projectOverview" placeholder="Enter project overview" required></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group date-group">
                         <label for="startDate">Start Date</label>
                         <input type="date" id="startDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="endDate">End Date</label>
-                        <input type="date" id="endDate" required>
+                        <label for="dueDate">Due Date</label>
+                        <input type="date" id="dueDate" required>
                     </div>
                     <div class="form-group">
                         <label for="priority">Priority</label>
@@ -84,12 +89,23 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="siteManagers">Assign to Site Manager</label>
-                        <select id="siteManagers" multiple required>
-                            <option value="manager1">Manager 1</option>
-                            <option value="manager2">Manager 2</option>
-                            <option value="manager3">Manager 3</option>
-                        </select>
+                        <label>Assign to Site Mangers</label>
+                        <input type="text" id="memberSearch" placeholder="Search for a member..." onkeyup="filterMembers()">
+                        <div class="dropdown-content" id="memberDropdown">
+                            <div>
+                                <input type="checkbox" id="member1" name="teamMembers" value="Member 1">
+                                <label for="member1">Member 1 (Role)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="member2" name="teamMembers" value="Member 2">
+                                <label for="member2">Member 2 (Role)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="member3" name="teamMembers" value="Member 3">
+                                <label for="member3">Member 3 (Role)</label>
+                            </div>
+                            <!-- Add more members as needed -->
+                        </div>
                     </div>
                     <button type="submit" class="btn">Create Project</button>
                 </form>
@@ -97,6 +113,7 @@
         </div>
     </div>
 
+    <script src="nav-highlight.js"></script>
     <script src="ProjectPage.js"></script>
     <script>
         function toggleProfileMenu(event) {
